@@ -1,2 +1,2 @@
 # Challenges-by-SL
-There are the my reply to challenges of SL
+These are  my reply to challenges of SL
