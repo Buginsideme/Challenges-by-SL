@@ -16,7 +16,7 @@ void control(int&, str&, bool&);
 int main(){
         bool flag=true;
         str number;
-        cout<<"\nInsert the nuber (Max three digit): ";
+        cout<<"\nInsert the nuber: ";
         cin>>number;
         int lung=strlen(number);
         control(lung,number,flag);
