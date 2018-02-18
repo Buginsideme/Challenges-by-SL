@@ -10,7 +10,6 @@ typedef char str[max_dim+1];
 int main(){
         str s;
         char a=' ';
-        int j=0;
         cout<<"\nInsert the string (Max "<<max_dim<<" type): ";
         cin.getline(s,max_dim);
         int dim=strlen(s);
