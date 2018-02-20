@@ -7,11 +7,20 @@ using namespace std;
 #define max_dim 30
 typedef char str[max_dim];
 
+void lettomor(str&, int&);
+
 int main(){
         str s1;
         cout<<"\nInsert the world to convert: ";
         cin>>s1;
         int l=strlen(s1);
+        lettomor(s1,l);
+        
+        cout<<"\n\n";
+}
+
+void lettomor(str& s1, int& l)
+{
         for (int i=0; i<l; i++) {
                 switch (s1[i]) {
                         case 'A':
@@ -150,5 +159,4 @@ int main(){
                                 break;
                 }
         }
-        cout<<"\n\n";
 }
