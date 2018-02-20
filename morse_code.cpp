@@ -8,8 +8,7 @@ using namespace std;
 typedef char str[max_dim];
 
 int main(){
-        str s1, s2;
-        char c;
+        str s1;
         cout<<"\nInsert the world to convert: ";
         cin>>s1;
         int l=strlen(s1);
