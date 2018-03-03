@@ -30,7 +30,7 @@ int main() {
                 case 1:
                         insert(num);
                         if (easy(num,sum)>(2*num))
-                                cout<<"\n"<<num<<" è abundant.";
+                                cout<<"\n"<<num<<" is abundant.";
                         else
                                 cout<<"\n"<<num<<" isn't abundant";
                 break;
@@ -50,7 +50,7 @@ int main() {
                         hard(num,sum);
                         cout<<"\nThe sum of factor is: "<<sum;
                         if (sum>(2*num))
-                                cout<<"\n"<<num<<" è abundant.";
+                                cout<<"\n"<<num<<" is abundant.";
                         else
                                 cout<<"\n"<<num<<" isn't abundant";
                 break;
