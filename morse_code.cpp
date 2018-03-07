@@ -127,12 +127,12 @@ void lettomor(str& s1, int& l)
                         case 'z':
                                 cout<<"--.."<<" ";
                                 break
-                        case 'Ch':
+                       /* case 'Ch':
                         case 'ch':
                         case 'cH':
                         case 'CH':
                                 cout<<"----"<<" ";
-                                break; 
+                                break; */
                         case '0':
                                 cout<<"-----"<<" ";
                                 break;
