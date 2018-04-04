@@ -41,11 +41,11 @@ int main() {
         }*/
 //hard way
         if (h>a && a>b) {
-                while (count!=h) {
+                while (count!=h && count<h) {
                         cout<<endl<<++days<<"° day";
                         count+=a;
                         cout<<"\nMorning: "<<count;
-                        if (count!=h) {
+                        if (count!=h && count<h) {
                                 count-=b;
                                 cout<<"\nNight: "<<count<<endl;
                         } else break;
