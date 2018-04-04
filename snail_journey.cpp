@@ -48,7 +48,7 @@ int main() {
                         if (count!=h) {
                                 count-=b;
                                 cout<<"\nNight: "<<count<<endl;
-                        }
+                        } else break;
                 }
         } else {
                 cout<<"\nERROR. Wrong value.";
