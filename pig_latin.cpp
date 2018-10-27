@@ -1,5 +1,5 @@
 //Ongoing
-//http://www.cplusplus.com/reference/cstring/strchr/
+//http://www.cplusplus.com/reference/cstring/strncpy/
 //http://www.cplusplus.com/reference/cstring/strpbrk/
 
 /*Pig Latin
@@ -30,17 +30,16 @@ using namespace std;
 
 //Prototypes
 void insert(char * &);
-//bool search_vowel(const char *, const char);
+bool search_vowel(const char *, char &);
 
 int main() {
         char * string=NULL;
         const char vowel[]="aeiouyAEIOUY";
-        const char consonant[]="bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
+        char consonant[]="bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
         insert(string);
         cout<<string<<endl;
-        /*char * temp;
-        temp=strpbrk (string, vowel);
-        cout<<temp;*/
+        if (search_vowel(string,vowel))
+                cout<<"\nFunziona";
         delete [] string;
         cout<<"\n\n";
         return 0;
@@ -56,10 +55,14 @@ void insert(char *  & s)
         strcpy(s,buffer);
 }
 
-/*bool search_vowel(const char * s, const char v)
+bool search_vowel(const char * s, char & v)
 {
-        int i=0;
-        while (v[i] != '\0') {
-                if (strncmp (str[n],"R2xx",2)==0)
-        }
-}*/
+        bool trovato=false;
+        char token[2];
+        char * pch;
+        strncpy(token,s,1);
+        pch = strpbrk (token, key);
+        if (pch != NULL)
+                trovato=true;
+        return trovato;
+}
