@@ -28,41 +28,28 @@ Bonus: Do the reverse and translate Pig Latin to English.*/
 #include <cstring>
 using namespace std;
 
-//Prototypes
-void insert(char * &);
-bool search_vowel(const char *, char &);
 
 int main() {
+        bool trovato=false;
         char * string=NULL;
         const char vowel[]="aeiouyAEIOUY";
-        char consonant[]="bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
-        insert(string);
-        cout<<string<<endl;
-        if (search_vowel(string,vowel))
-                cout<<"\nFunziona";
-        delete [] string;
-        cout<<"\n\n";
-        return 0;
-}
-
-//Function
-void insert(char *  & s)
-{
+        //char consonant[]="bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
         char buffer[1000];
         cout<<"\nInsert the word: ";
         cin.getline(buffer,100);
-        s=new char [strlen(buffer)+1];
-        strcpy(s,buffer);
-}
-
-bool search_vowel(const char * s, char & v)
-{
-        bool trovato=false;
-        char token[2];
-        char * pch;
-        strncpy(token,s,1);
-        pch = strpbrk (token, key);
+        string=new char [strlen(buffer)+1];
+        strcpy(string,buffer);
+        cout<<"\nThe word is: "<<string<<endl;
+        char token[2]; //this take che first letter of the word
+        char * pch;    //this take the pointer of the corresponding vowel
+        strncpy(token,string,1);
+        pch = strpbrk (token, vowel);
         if (pch != NULL)
                 trovato=true;
-        return trovato;
+        if (trovato)
+                strcat(string,"yay");
+        cout<<"\nThe pig-latin word is: "<<string;
+        delete [] string;
+        cout<<"\n\n";
+        return 0;
 }
