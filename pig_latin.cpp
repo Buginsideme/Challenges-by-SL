@@ -2,7 +2,6 @@
 //http://www.cplusplus.com/reference/cstring/strncpy/
 //http://www.cplusplus.com/reference/cstring/strpbrk/
 //http://www.cplusplus.com/reference/cstring/strcat/
-//strpbrk give me problem
 
 /*Pig Latin
 Pig Latin is an argot ("secret" language) in which words in English are altered
@@ -31,42 +30,48 @@ Bonus: Do the reverse and translate Pig Latin to English.*/
 using namespace std;
 
 //Prototypes
-void insert(char * &);
-bool search_vowel(char * &, char &);
+bool is_vowel(const char *, const char *);
 
 int main() {
-        char * string=NULL;
+        char * str;
         const char vowel[]="aeiouyAEIOUY";
         //char consonant[]="bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
-        insert(string);
-        cout<<"\nThe word is: "<<string<<endl;
-        /*if (search_vowel(string,vowel)) {
-                strcat(string,"yay");
-                cout<<"\nThe pig-latin word is: "<<string;
+        cout<<"\nInsert the word: ";
+        char buffer[100];
+        cin.getline(buffer,100);
+        str=new char [strlen(buffer)+1];
+        strcpy(str,buffer);
+        if (is_vowel(str,vowel))
+                strcat(str,"yay");
+        cout<<"\nThe word in pig latin is: "<<str<<endl;
+        /*else {
+                for (int j=0; j<strlen(s); j++) {
+                        int i;
+                        mystring temp="";
+                        strcpy(temp,s);
+                        for (i=0; i<strlen(temp); i++)
+                                temp[i]=temp[i+1];
+                        temp[i]='\0';
+                        //i=0;
+                        strncpy(token,temp,1);
+                        pch = strpbrk (token, vowel);
+                        if (pch != NULL)
+                                trovato=true;
+                        if (trovato)
+                                cout<<"\nLa successiva è una vocale";
+                }
         }*/
-        delete [] string;
         cout<<"\n\n";
         return 0;
 }
 
 //Function
-void insert(char *  & s)
+bool is_vowel(const char * s, const char * v)
 {
-        char buffer[100];
-        cout<<"\nInsert the word: ";
-        cin>>buffer;
-        s=new char [strlen(buffer)+1];
-        strcpy(s,buffer);
+        char * pch;  //this take the pointer of the corresponding vowel
+        char token[2];  //this take che first letter of the word
+        strncpy(token,s,1);
+        pch=strpbrk(token,v);
+        return (pch != NULL);
 }
 
-bool search_vowel(char * & s, char & v)
-{
-        bool trovato=false;
-        char token[2];  //this take che first letter of the word
-        char * pch;  //this take the pointer of the corresponding vowel
-        strncpy(token,s,1);
-        pch =strpbrk (token,v);
-        if (pch != NULL)
-                trovato=true;
-        return trovato;
-}
