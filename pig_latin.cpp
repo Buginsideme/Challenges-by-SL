@@ -44,7 +44,7 @@ int main() {
                 strncpy(temp,str,1);
                 bool check=false;
                 int i=0;
-                while (i<strlen(str) && !check) {
+                while (i<=strlen(str) && !check) {
                         for (int j=0; j<strlen(str); j++)
                                 str[j]=str[j+1];
                         strcat(str,temp);
