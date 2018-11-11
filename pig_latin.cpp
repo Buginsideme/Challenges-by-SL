@@ -31,32 +31,30 @@ using namespace std;
 
 //Prototypes
 void insert(char * &);
-bool is_vowel(const char *, const char *);
+bool is_vowel(const char *);
 
 int main() {
         char * str;
-        const char vowel[]="aeiouyAEIOUY";
         insert(str);
-        if (is_vowel(str,vowel))
+        if (is_vowel(str)) {
                 strcat(str,"yay");
-        cout<<"\nThe word in pig latin is: "<<str<<endl;
-        /*else {
-                for (int j=0; j<strlen(s); j++) {
-                        int i;
-                        mystring temp="";
-                        strcpy(temp,s);
-                        for (i=0; i<strlen(temp); i++)
-                                temp[i]=temp[i+1];
-                        temp[i]='\0';
-                        //i=0;
-                        strncpy(token,temp,1);
-                        pch = strpbrk (token, vowel);
-                        if (pch != NULL)
-                                trovato=true;
-                        if (trovato)
-                                cout<<"\nLa successiva è una vocale";
+                cout<<"\nThe word in pig latin is: "<<str<<endl;
+        } else {
+                char temp[10];
+                strncpy(temp,str,1);
+                bool check=false;
+                int i=0;
+                while (i<strlen(str) && !check) {
+                        for (int j=0; j<strlen(str); j++)
+                                str[j]=str[j+1];
+                        strcat(str,temp);
+                        check=is_vowel(str);
+                        strncpy(temp,str,1);
+                        i++;
                 }
-        }*/
+                        strcat(str,"ay");
+                cout<<"\nThe word in pig latin is: "<<str<<endl;
+        }
         cout<<"\n\n";
         return 0;
 }
@@ -71,12 +69,13 @@ void insert(char * & s)
         strcpy(s,buffer);
 }
 
-bool is_vowel(const char * s, const char * v)
+bool is_vowel(const char * s)
 {
+        const char vowel[]="aeiouyAEIOUY";
         char * pch;  //this take the pointer of the corresponding vowel
         char token[2];  //this take che first letter of the word
         strncpy(token,s,1);
-        pch=strpbrk(token,v);
+        pch=strpbrk(token,vowel);
         return (pch != NULL);
 }
 
