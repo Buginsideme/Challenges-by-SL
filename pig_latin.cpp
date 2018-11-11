@@ -30,17 +30,13 @@ Bonus: Do the reverse and translate Pig Latin to English.*/
 using namespace std;
 
 //Prototypes
+void insert(char * &);
 bool is_vowel(const char *, const char *);
 
 int main() {
         char * str;
         const char vowel[]="aeiouyAEIOUY";
-        //char consonant[]="bcdfghjklmnpqrstvwxzBCDFGHJKLMNPQRSTVWXZ";
-        cout<<"\nInsert the word: ";
-        char buffer[100];
-        cin.getline(buffer,100);
-        str=new char [strlen(buffer)+1];
-        strcpy(str,buffer);
+        insert(str);
         if (is_vowel(str,vowel))
                 strcat(str,"yay");
         cout<<"\nThe word in pig latin is: "<<str<<endl;
@@ -66,6 +62,15 @@ int main() {
 }
 
 //Function
+void insert(char * & s)
+{
+        cout<<"\nInsert the word: ";
+        char buffer[100];
+        cin.getline(buffer,100);
+        s=new char [strlen(buffer)+1];
+        strcpy(s,buffer);
+}
+
 bool is_vowel(const char * s, const char * v)
 {
         char * pch;  //this take the pointer of the corresponding vowel
@@ -74,4 +79,5 @@ bool is_vowel(const char * s, const char * v)
         pch=strpbrk(token,v);
         return (pch != NULL);
 }
+
 
