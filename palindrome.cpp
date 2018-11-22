@@ -26,14 +26,15 @@ int main(){
 
 bool control(const str & s)
 {
-        bool trovato=false;
+        bool flag=false;
         int i=0, j=strlen(s)-1;
-        while (i<(strlen(s))/2 && !trovato) {
+        while (i<(strlen(s))/2 && !flag) {
                 if (s[i++]==s[j--]) {
-                        trovato=true;
+                        flag=true;
                 }
         }
         return trovato;
+        
         //Another way
         /*int start=0, end=strlen(s)-1;
         while (start<end) {
