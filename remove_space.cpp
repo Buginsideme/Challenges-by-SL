@@ -1,4 +1,5 @@
 /*Given a string as imput, output it without spaces*/
+
 #include<iostream>
 #include<cstdlib>
 #include<cstring>
@@ -9,12 +10,10 @@ typedef char str[max_dim+1];
 
 int main(){
         str s;
-        char a=' ';
         cout<<"\nInsert the string (Max "<<max_dim<<" type): ";
-        cin.getline(s,max_dim);
-        int dim=strlen(s);
-        for (int i=0; i<dim; i++) {
-                if (s[i]!=a) {
+        cin.get(s,max_dim);
+        for (int i=0; i<strlen(s); i++) {
+                if (s[i]!=' ') {
                         cout<<s[i];
                 }
         }
