@@ -33,7 +33,7 @@ bool control(const str & s)
                         flag=true;
                 }
         }
-        return trovato;
+        return flag;
         
         //Another way
         /*int start=0, end=strlen(s)-1;
