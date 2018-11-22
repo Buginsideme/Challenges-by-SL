@@ -4,26 +4,25 @@ integers, that is, n=x*(x+1)*/
 #include<cstdlib>
 using namespace std;
 
-bool pronic(int&, bool&);
+bool pronic(int&);
 
 int main(){
         int num;
-        bool flag=false;
         cout<<"\nGive me the number: ";
         cin>>num;
-        if (pronic(num,flag))
+        if (pronic(num))
                 cout<<num<<" is a pronic number.";
         else
                 cout<<num<<" is not a pronic number.";
         cout<<"\n\n";
 }
 
-bool pronic(int& num, bool& flag)
+bool pronic(int& num)
 {
         for (int x=0; x<num; x++) {
                 if (num==(x*(x+1))) {
-                        flag=true;
+                        return true;
                 }
         }
-        return flag;
+        return false;
 }
