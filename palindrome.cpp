@@ -10,29 +10,35 @@ using namespace std;
 const int max_dim=20;
 typedef char str[max_dim];
 
-void control(int&, str&, bool&);
+bool control(const str &);
 
 
 int main(){
-        bool flag=true;
         str number;
         cout<<"\nInsert the nuber: ";
         cin>>number;
-        int lung=strlen(number);
-        control(lung,number,flag);
-        if (flag)
+        if (control(number))
                 cout<<"\nIt's palindrome";
         else
                 cout<<"\nNot palindrome";
         cout<<"\n\n";
 }
 
-void control(int& n, str& s, bool& flag)
+bool control(const str & s)
 {
-        for (int i=0, j=n-1; i<n/2; i++, j--) {
-                if (s[i]!=s[j]) {
-                        flag=false;
-                        break;
+        bool trovato=false;
+        int i=0, j=strlen(s)-1;
+        while (i<(strlen(s))/2 && !trovato) {
+                if (s[i++]==s[j--]) {
+                        trovato=true;
                 }
         }
+        return trovato;
+        //Another way
+        /*int start=0, end=strlen(s)-1;
+        while (start<end) {
+                if (s[start++]!=s[end--])
+                        return false;
+        }
+        return true;*/
 }
